@@ -25,7 +25,7 @@ python-nmap library
 
 The scanner works in three phases:
 
-Phase 1 — Host Discovery:- Scans the network range to find live devices.
+Phase 1 — Host Discovery:- Scans the network range to find live devices./n
 Phase 2 — Port Scanning:- Scans top 1000 ports on each host. Identifies port states (open / closed / filtered).
 Phase 3 — Report Generation:- Generates a structured HTML report with risk levels.
 
