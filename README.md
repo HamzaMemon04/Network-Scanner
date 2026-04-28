@@ -1,83 +1,62 @@
-# Network-Scanner
+# Network Scanner
 
 This is my second cybersecurity-related project.
 It is a Python-based tool that scans a target network, discovers live hosts, finds open ports, and identifies running services — then generates a detailed HTML report.
-Features
 
+# Features
 Discovers live hosts on a network range
-Scans the top 1000 most common TCP ports
+Scans top 1000 most common TCP ports
 Detects:
-
 Open ports
 Running services
 Software versions
-
-
-Classifies each finding by risk level:
-
+Classifies findings by risk level:
 HIGH → MEDIUM → LOW
-
-
-Automatically flags dangerous ports:
-
+Automatically flags risky ports:
 445 (SMB), 3389 (RDP), 22 (SSH), 21 (FTP), 23 (Telnet), 3306 (MySQL)
-
-
 Generates a dark-themed HTML report
-Skips unresponsive hosts automatically (timeout handling)
-
-Tech Used
-
+Skips unresponsive hosts (timeout handling)
+🛠️ Tech Used
 Python 3.x
-Nmap 7.99
+Nmap
 python-nmap library
 
-Requirements
+# How It Works
 
-Python installed → python.org
-Nmap installed → nmap.org/download.html
-python-nmap library:
+The scanner works in three phases:
 
-pip install python-nmap
-How It Works
-The scanner runs in 3 phases:
-Phase 1 — Host Discovery
-Sends ping probes across the entire network range to find which devices are alive
-Phase 2 — Port Scanning
-For each live host, scans the top 1000 ports and checks their state (open / closed / filtered)
-Phase 3 — Report Generation
-Compiles all results into a risk-rated HTML report saved in the reports/ folder
-How To Run
-python scanner.py 192.168.0.0/24
-To find your network range run ipconfig (Windows) and check your IPv4 address.
-If your IP is 192.168.1.45 then your range is 192.168.1.0/24
-Note
+Phase 1 — Host Discovery:- Scans the network range to find live devices.
+Phase 2 — Port Scanning:- Scans top 1000 ports on each host. Identifies port states (open / closed / filtered).
+Phase 3 — Report Generation:- Generates a structured HTML report with risk levels.
 
-This tool is for educational purposes and authorized testing only
-Only scan networks you own or have written permission to test
-Scanning without authorization is illegal
+# How To Run
+Run the script: python scanner.py 192.168.0.0/24
+To find your network range: Run ipconfig (Windows)
+Check your IPv4 address
+Example: IP: 192.168.1.45 → Range: 192.168.1.0/24
 
-What I Learned
+# Note
+This tool is for educational purposes only
+Only scan networks you own or have permission to test
+Unauthorized scanning is illegal
 
-How ping sweeps discover live hosts on a network
-Difference between open, closed, and filtered port states
-How the TCP 3-way handshake relates to port scanning
-What service fingerprinting is and how Nmap detects versions
-Why ports like 445 and 3389 are high-risk findings in a pentest
-Python concepts: functions, loops, exception handling, file I/O
-How to control Nmap programmatically using python-nmap
-CIDR notation and network ranges
+# What I Learned
+How network scanning works
+Host discovery using ping sweeps
+Port states: open, closed, filtered
+Basics of TCP handshake in scanning
+Service detection and fingerprinting
+High-risk ports in cybersecurity
+Python scripting and automation
+Working with Nmap using python-nmap
+Understanding CIDR and network ranges
 
-Future Improvements
-
+# Future Improvements
 Add UDP port scanning
-Add CVE lookup for detected service versions
-Add JSON export option alongside HTML
-Build a GUI version
+Add CVE lookup for detected services
+Add JSON report export
+Build GUI version
 Add OS detection
 
-Project Portfolio
-This is Project 2 of my 10-project cybersecurity portfolio.
-#ProjectStatus1Password AnalyserDone2Network ScannerDone3Coming SoonIn Progress
-Author
+# Author
 Hamza
